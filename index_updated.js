@@ -9,7 +9,8 @@ async function fetchList() {
             'Authorization': 'Bearer ' + API_KEY
         }
     })
-    const response = await resp.json()
+    const response = await resp.json();
+    console.log(response); // Log the API response to the console
     for (let doc of response.data) {
         await showDocument(doc)
     }
@@ -26,4 +27,7 @@ async function showDocument(doc) {
     `
 }
 
-window.onload = () => fetchList()
+window.onload = () => {
+    console.log("Window loaded, calling fetchList");
+    fetchList();
+}
